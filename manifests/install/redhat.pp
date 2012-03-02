@@ -1,6 +1,7 @@
 class passenger::install::redhat {
   $os_type = $::operatingsystem ? {
     'Fedora' => "fedora/${::operatingsystemrelease}",
+    'Amazon' => "rhel/6",
     default  => inline_template('rhel/<%= operatingsystemrelease.split(".")[0] %>')
   }
 
